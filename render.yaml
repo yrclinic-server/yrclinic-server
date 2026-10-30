@@ -1,0 +1,14 @@
+# Render 一键部署配置（网页操作也可用，此文件可选）
+# 部署后请在 Render 后台的 Environment 里设置 ADMIN_TOKEN（后台访问令牌）
+services:
+  - type: web
+    name: yrclinic-free-server
+    runtime: python
+    plan: free
+    buildCommand: "true"
+    startCommand: "python trial_server.py"
+    envVars:
+      - key: HOST
+        value: "0.0.0.0"
+      - key: ADMIN_TOKEN
+        sync: false   # 在 Render 后台手动填入你的令牌（如 YR2026Admin）
